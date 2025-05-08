@@ -1,0 +1,17 @@
+<h1>Lists#show</h1>
+<p>Find me in app/views/lists/show.html.erb</p>
+<h2><%= @list.name %></h2>
+
+<ul class="list-group">
+  <% @list.bookmarks.each do |bookmark| %>
+    <li class="list-group-item">
+    <%= bookmark.comment %>
+    <br><%= bookmark.movie.title %>
+    <br><%= bookmark.movie.rating %>
+    <br><%= bookmark.movie.overview %>
+    <br><img src="<%= bookmark.movie.poster_url %>"></li>
+  <% end %>
+</ul>
+
+ <%= link_to "Add Bookmark", new_list_bookmarks_path(@list) %>
+ <%= link_to "Back to lists", lists_path %>
